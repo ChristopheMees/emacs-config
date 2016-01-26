@@ -170,3 +170,6 @@
 (add-hook 'js2-mode-hook
           (lambda ()
             (add-hook 'after-save-hook #'eslint-fix-file-and-revert)))
+
+(add-to-list 'load-path "~/.emacs.d/custom/emacs-gulpjs")
+(require 'gulpjs)
