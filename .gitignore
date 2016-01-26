@@ -1,0 +1,6 @@
+elpa/
+backups/
+.saves*
+.smex-items
+ido.last
+places
