@@ -59,7 +59,9 @@
     ;; Flycheck is a modern on-the-fly syntax checking extension for GNU Emacs,
     ;; intended as replacement for the older Flymake extension which is part of GNU Emacs.
     ;; http://www.flycheck.org/
-    flycheck))
+    flycheck
+    
+    json-mode))
 
 (dolist (p my-packages)
   (when (not (package-installed-p p))
@@ -129,6 +131,9 @@
 ;; Register js files for js2-mode
 (add-to-list 'auto-mode-alist ' ("\\.js$" . js2-mode))
 
+;; Register json files for json-mode
+(add-to-list 'auto-mode-alist ' ("\\.json$" . json-mode))
+
 ;; Add smartparents to js2-mode
 (add-hook 'js2-mode-hook #'smartparens-strict-mode)
 
@@ -138,8 +143,8 @@
 ;; http://www.flycheck.org/manual/latest/index.html
 (require 'flycheck)
 
-;; turn on flychecking globally
-(add-hook 'after-init-hook #'global-flycheck-mode)
+;; turn on flychecking when editing js
+(add-hook 'js2-mode-hook 'flycheck-mode)
 
 ;; disable jshint since we prefer eslint checking
 (setq-default flycheck-disabled-checkers
