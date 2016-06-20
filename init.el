@@ -111,6 +111,9 @@
 
 (add-hook 'cider-repl-mode-hook #'smartparens-strict-mode)
 
+;; Don't show the startup message
+(setq inhibit-startup-message t)
+
 ;; Load the default config for smartparens
 ;; I'm loading it because it disables matching '
 ;; and it probably does some other neat stuff but I haven't looked at it~
